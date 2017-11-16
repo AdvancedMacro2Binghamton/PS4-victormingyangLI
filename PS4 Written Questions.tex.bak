@@ -1,0 +1,108 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{rotating}
+\usepackage{verbatim}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{geometry}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{blue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
+\begin{document}
+\begin{center}
+\Large{\textbf{ECON 634 Problem Set 4}}\\[3mm]
+\large{{Mingyang Li}}\\[1mm]
+\today
+\end{center}
+
+\begin{itemize}
+
+\item[1] The first-order conditions for the firm are
+$$\frac{\partial\pi(K_t,N_t;w_t,r_t)}{\partial K_t}=0,$$
+$$\frac{\partial\pi(K_t,N_t;w_t,r_t)}{\partial N_t}=0.$$
+That is,
+$$F_{K_t}(K_t,N_t)-r+(1-\delta)=0,$$
+$$F_{N_t}(K_t,N_t)-w_t=0.$$
+Therefore,
+$$r_t = \alpha \left(\frac{K}{N}\right)_t^{\alpha-1}+(1-\delta),$$
+$$w_t=(1-\alpha)\left(\frac{K}{N}\right)_t^\alpha.$$
+
+\item[2] The households' recursive problem is 
+$$\max_{\{c_t\}_{t=0}^\infty}\mathbb{E}_0\left[\sum_{t=0}^\infty\beta^t \frac{c_t^{1-\sigma}}{1-\sigma}\right]$$
+$$s.t.\ c_t+a_{t+1}=z_tw_t\bar{l}+r_ta_t$$
+$$\ln z_{t+1}=\rho \ln z_t+\varepsilon_t$$
+$$l_t=\bar{l}=1$$
+$$a_{t+1}\in\Gamma(s_t,a_t)$$
+$$a_{t+1}\geq\underbar{$a$},\ \forall t,\ \text{and}\ a_0\ \text{given.}$$
+
+\item[6] 
+The steady state interest rate $r=1.0101$, which is equal to the complete markets interest rate $r^{CM}=1/\beta=1.0101$. \\
+According to my results, there is no big difference in the Lorenz Curve between Aiyagari and Huggett.
+\begin{sidewaysfigure}
+\centerline{\includegraphics[scale=.38]{pol_pol.jpg}}
+\caption{Policy Functions}
+\end{sidewaysfigure}
+\begin{figure}
+\centerline{\includegraphics[scale=.52]{Lorenz_pol.jpg}}
+\caption{Lorenz Curve of Aiyagari Model}
+\end{figure}
+\begin{figure}
+\centerline{\includegraphics[scale=.92]{LorenzCurveofWealth.jpg}}
+\caption{Lorenz Curve of Huggett Model}
+\end{figure}
+\begin{sidewaysfigure}
+\centerline{\includegraphics[scale=.38]{pdf_pol.jpg}}
+\caption{Wealth Distribution}
+\end{sidewaysfigure}
+
+\item[7] I set up the following initial conditions for asset and capital: 
+\begin{verbatim}
+a_lo = 0; a_hi = 80; num_a = 2000; K_max = 50; K_min = 20.
+\end{verbatim}
+Using Value Function Iteration, I got a Gini coefficient of 0.33374 and elapsed time is 7506.545284 seconds. \\
+Using Policy Function Iteration, I got a Gini coefficient of 0.33428 and elapsed time is 8256.467155 seconds. \\
+The PFI approach is slower than the VFI approach! \\
+I didn't manage to solve the interpolation parts...
+
+\newgeometry{left=1cm, right=2cm}
+\Large {\bf Appendices}
+\appendix
+\section{The main program PS4.m}
+\lstinputlisting[language=Matlab]{PS4.m}
+\section{The function file grid\_search.m}
+\lstinputlisting[language=Matlab]{grid_search.m}
+\section{The function file pol\_fn\_iter.m}
+\lstinputlisting[language=Matlab]{pol_fn_iter.m}
+\restoregeometry
+
+\end{itemize}
+
+\end{document}
