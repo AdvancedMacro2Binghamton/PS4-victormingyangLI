@@ -85,7 +85,7 @@ According to my results, there is no big difference in the Lorenz Curve between 
 
 \item[7] I set up the following initial conditions for asset and capital: 
 \begin{verbatim}
-a_lo = 0; a_hi = 80; num_a = 2000; K_max = 50; K_min = 20.
+a_lo = 0; a_hi = 80; num_a = 2000; K_max = 50; K_min = 20; abs(K_tol) >= .01.
 \end{verbatim}
 Using Value Function Iteration, I got a Gini coefficient of 0.33374 and elapsed time is 7506.545284 seconds. \\
 Using Policy Function Iteration, I got a Gini coefficient of 0.33428 and elapsed time is 8256.467155 seconds. \\
