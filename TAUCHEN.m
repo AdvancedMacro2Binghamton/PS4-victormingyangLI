@@ -1,4 +1,4 @@
-function [y,yprob] =TAUCHEN(ny,lambda,sigma,m)
+function [y,yprob] = TAUCHEN(ny,lambda,sigma,m)
 % TAUCHEN Tauchen's algorithm (1986)
 %       A Markov chain whose sample paths approximate those of the AR(1) process 
 
